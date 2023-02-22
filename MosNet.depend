@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1676977756 source:d:\pers\mostefa_my_files_prefecture_crous\python_c_c++\c_c++\projects\mosnet\main.cpp
+	<iostream>
+	"Eigen/Dense"
+
