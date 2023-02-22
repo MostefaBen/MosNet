@@ -1,2 +1,2 @@
 # MosNet: 
- is an open-source C++ library for building Deep Learning algorithms
+An Open Source Framework for Building Machine Learning Algorithms.
