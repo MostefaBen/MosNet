@@ -1,2 +1,2 @@
 # MosNet: 
-An Open Source Framework for Building Machine Learning Algorithms.
+An Open Source C++ Framework for Building Machine Learning Algorithms.
