@@ -1,6 +1,6 @@
 #include "fc.hpp"
 
-FC::FC(const int input_size,const int output_size): Layers(input_size, output_size)
+FC::FC(const int input_size,const int output_size): Layer(input_size, output_size)
 {
     //ctor
 }
@@ -37,7 +37,7 @@ void forward(const Matrix& prev_layer_data) {
 		Activation::activate(tensor_z, tensor_a);
 }
 
-const Matrix& output() const
+const Matrix& get_logit() const
 {
 		return tensor_a;
 }
@@ -64,7 +64,7 @@ void update_parameters(Optimizer& opt)
 		opt.update(db, b);
 }
 
-std::vector<Scalar> get_parameters() const
+std::vector<Scalar> get_parameter() const
 {
     //TODO
 }
@@ -78,3 +78,4 @@ std::vector<Scalar> get_derivatives() const
 {
     //TODO
 }
+

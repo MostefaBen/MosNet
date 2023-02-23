@@ -1,11 +1,5 @@
 #ifndef FC_HPP
 #define FC_HPP
-#include <Eigen/Core>
-#include <vector>
-#include <stdexcept>
-#include "../layers.hpp"
-
-typedef double Scalar;
 
 template<typename Activation>
 
@@ -15,18 +9,15 @@ class FC : public Layers
         /** constructor and destructor **/
         FC(const int input_size,const int output_size);
         virtual ~FC();
-        /*** initialization ***/
-        void initialization(const Scalar& mu, const Scalar& sigma, RNG& rng);
-        /*** forward and backward ***/
-        void forward(const Matrix& prev_layer_data);
-        void backward(const Matrix& prev_layer_data, const Matrix& next_layer_data);
-        void update_parameters(Optimizer& opt);
-        /*** getter and setter ***/
-        const Matrix& backward_data() const;
-        const Matrix& output() const;
-        std::vector<Scalar> get_parameters() const;
-        void set_parameters(const std::vector<Scalar>& param);
-        std::vector<Scalar> get_derivatives() const;
+        void init(const Scalar& mu, const Scalar& sigma, RNG& rng) {
+		m_weight.resize(this->m_in_size, this->m_out_size);
+		m_bias.resize(this->m_out_size);
+		m_dw.resize(this->m_in_size, this->m_out_size);
+		m_db.resize(this->m_out_size);
+
+		internal::set_normal_random(m_weight.data(), m_weight.size(), rng, mu, sigma);
+		internal::set_normal_random(m_bias.data(), m_bias.size(), rng, mu, sigma);
+	}
 
 
     private:
