@@ -5,6 +5,6 @@ MosNet is under heavy development.
 
 ## Dependencies
 
-- GCC Complier
+- GCC Compiler
 
 - Eigen Library
